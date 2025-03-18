@@ -1,0 +1,24 @@
+{
+  "name": "tailwind-css-v4",
+  "version": "1.0.0",
+  "description": "Beginner to pro",
+  "main": "index.js",
+  "scripts": {
+    "tw:build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kJshine/Tailwind-CSS-v4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kJshine/Tailwind-CSS-v4/issues"
+  },
+  "homepage": "https://github.com/kJshine/Tailwind-CSS-v4#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.14",
+    "tailwindcss": "^4.0.14"
+  }
+}
