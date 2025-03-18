@@ -207,12 +207,6 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
-  .left-0 {
-    left: calc(var(--spacing) * 0);
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -231,6 +225,18 @@
       max-width: 96rem;
     }
   }
+  .my-auto {
+    margin-block: auto;
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
@@ -240,8 +246,11 @@
   .table {
     display: table;
   }
-  .h-full {
-    height: 100%;
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
   }
   .flex-1 {
     flex: 1;
@@ -276,9 +285,8 @@
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
-  .rounded-b {
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
   }
   .rounded-b-md {
     border-bottom-right-radius: var(--radius-md);
@@ -294,6 +302,9 @@
   }
   .bg-pink-500 {
     background-color: var(--color-pink-500);
+  }
+  .bg-zinc-200 {
+    background-color: var(--color-zinc-200);
   }
   .bg-gradient-to-r {
     --tw-gradient-position: to right in oklab;
@@ -312,6 +323,9 @@
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
+  }
+  .pr-4 {
+    padding-right: calc(var(--spacing) * 4);
   }
   .text-right {
     text-align: right;
@@ -342,6 +356,9 @@
   .underline {
     text-decoration-line: underline;
   }
+  .opacity-100 {
+    opacity: 100%;
+  }
   .ring {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentColor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -349,21 +366,24 @@
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-opacity {
+    transition-property: opacity;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .group-hover\:absolute {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        position: absolute;
-      }
-    }
   }
   .group-hover\:block {
     &:is(:where(.group):hover *) {
@@ -379,18 +399,51 @@
       }
     }
   }
-  .hover\:bg-white\/10 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-      }
-    }
-  }
   .hover\:text-zinc-200 {
     &:hover {
       @media (hover: hover) {
         color: var(--color-zinc-200);
       }
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+  .group-open\:-top-2 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      top: calc(var(--spacing) * -2);
+    }
+  }
+  .group-open\:top-2 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      top: calc(var(--spacing) * 2);
+    }
+  }
+  .group-open\:bottom-2 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      bottom: calc(var(--spacing) * 2);
+    }
+  }
+  .group-open\:-rotate-45 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      rotate: calc(45deg * -1);
+    }
+  }
+  .group-open\:rotate-45 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      rotate: 45deg;
+    }
+  }
+  .group-open\:opacity-0 {
+    &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+      opacity: 0%;
     }
   }
 }
