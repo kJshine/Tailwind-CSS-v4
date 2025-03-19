@@ -46,6 +46,8 @@
     );
     --font-quicksand: "Quicksand", serif;
     --animate-wavey: wavey 1000ms linear infinite;
+    --animation-delay-200: 200ms;
+    --animation-delay-300: 300ms;
   }
 }
 @layer base {
@@ -508,6 +510,21 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .animation-delay-200 {
+    animation-delay: var(--animation-delay-200);
+  }
+  .animation-delay-300 {
+    animation-delay: var(--animation-delay-300);
+  }
+  .animation-delay-\[75ms\] {
+    animation-delay: 75ms;
+  }
+  .animation-delay-\[150ms\] {
+    animation-delay: 150ms;
+  }
+  .animation-delay-\[150px\] {
+    animation-delay: 150px;
   }
   .group-hover\:block {
     &:is(:where(.group):hover *) {
