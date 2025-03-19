@@ -256,8 +256,26 @@
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
+  .h-\[calc\(1\)\] {
+    height: calc(1);
+  }
+  .h-\[calc\(100vh-200px\)\] {
+    height: calc(100vh - 200px);
+  }
+  .h-\[calc\(100vh_-200px\)\] {
+    height: calc(100vh - 200px);
+  }
+  .h-\[calc\(100vh_-_200px\)\] {
+    height: calc(100vh - 200px);
+  }
+  .h-\[calc\] {
+    height: calc;
+  }
   .h-full {
     height: 100%;
+  }
+  .min-h-\[400px\] {
+    min-height: 400px;
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
@@ -288,6 +306,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .flex-col {
+    flex-direction: column;
   }
   .items-center {
     align-items: center;
@@ -326,6 +347,24 @@
     --tw-gradient-position: to right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
+  .bg-\[url\(\'\'\)\] {
+    background-image: url('');
+  }
+  .bg-\[url\(\'\.\/assets\'\)\] {
+    background-image: url('./assets');
+  }
+  .bg-\[url\(\'\.\/assets\/\'\)\] {
+    background-image: url('./assets/');
+  }
+  .bg-\[url\(\'\.\/assets\/images\'\)\] {
+    background-image: url('./assets/images');
+  }
+  .bg-\[url\(\'\.\/assets\/images\/hero\.jpg\'\)\] {
+    background-image: url('./assets/images/hero.jpg');
+  }
+  .bg-\[url\(\{\}\)\] {
+    background-image: url({});
+  }
   .from-rose-500 {
     --tw-gradient-from: var(--color-rose-500);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -333,6 +372,15 @@
   .to-pink-500 {
     --tw-gradient-to: var(--color-pink-500);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .bg-cover {
+    background-size: cover;
+  }
+  .bg-fixed {
+    background-attachment: fixed;
+  }
+  .bg-center {
+    background-position: center;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
