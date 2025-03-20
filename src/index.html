@@ -10,7 +10,6 @@
       window.onload = () => {
         const mobileMenuIcon = document.getElementById("mobile-menu-button");
         mobileMenuIcon.addEventListener("click", () => {
-          console.log(mobileMenuIcon.classList);
           if (mobileMenuIcon.classList.contains("open")) {
             mobileMenuIcon.classList.remove("open");
           } else {
@@ -20,7 +19,6 @@
 
         const ticketMenuItem = document.getElementById("ticket-menu-item");
         ticketMenuItem.addEventListener("click", () => {
-          console.log(ticketMenuItem.classList);
           if (ticketMenuItem.classList.contains("open")) {
             ticketMenuItem.classList.remove("open");
           } else {
@@ -39,14 +37,34 @@
           const itemWidth = carousel.getElementsByTagName("div")[0].clientWidth;
           carousel.scrollLeft -= itemWidth;
         });
+
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        darkModeToggle.addEventListener("click", () => {
+          if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
       };
     </script>
   </head>
   <body>
-    <main>
-      <header class="text-zinc-200">
+    <main class="bg-zinc-200 dark:bg-zinc-900">
+      <header>
+        <button
+          id="dark-mode-toggle"
+          class="fixed top-24 right-0 inline-block w-12 cursor-pointer rounded-l-lg bg-zinc-900 p-2 text-3xl text-zinc-200 dark:bg-zinc-200 dark:text-zinc-900"
+        >
+          <span class="dark:hidden">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+          <span class="hidden dark:inline">
+            <i class="fa-solid fa-moon"></i>
+          </span>
+        </button>
         <nav
-          class="sticky top-0 flex bg-gradient-to-r from-rose-500 to-pink-500"
+          class="sticky top-0 z-10 flex bg-gradient-to-r from-rose-500 to-pink-500"
         >
           <div class="flex items-center gap-2 p-2">
             <img
@@ -192,7 +210,9 @@
           </div>
         </div>
       </header>
-      <div class="mx-auto my-20 max-w-screen-lg">
+      <div
+        class="mx-auto my-20 max-w-screen-lg text-zinc-900 dark:text-zinc-200"
+      >
         <h2>Headliners</h2>
         <p>
           Experience the sonic delight from these made-up aritists across 7 days
@@ -206,81 +226,79 @@
           >
             <i class="fas fa-angle-left"></i>
           </div>
-          <div>
-            <div
-              id="carousel"
-              class="mt-4 flex w-full flex-1 snap-x gap-4 overflow-x-auto scroll-smooth pb-5"
-            >
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band1.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Corduroy Gary</h5>
-                <h5>1st july 9pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band2.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Ken's Shoing Off Again</h5>
-                <h5>2nd July 9.30pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band3.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Golden Quavers</h5>
-                <h5>3rd july 9.30pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band4.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Sonic Levitation</h5>
-                <h5>4st July 10pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band5.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Collection Point A</h5>
-                <h5>5th july 10pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band6.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Laura Can't Eat Daily</h5>
-                <h5>6th july 10pm - Main stage</h5>
-              </div>
-              <div class="mix-w-[80%] md:min-w-[40%]">
-                <div
-                  style="
-                    background-image: url(&quot;./assets/images/band7.jpg&quot;);
-                  "
-                  class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
-                ></div>
-                <h5 class="mt-2">Broken Toaster</h5>
-                <h5>7th july 10.30pm - Main stage</h5>
-              </div>
+          <div
+            id="carousel"
+            class="mt-4 flex w-full flex-1 snap-x gap-4 overflow-x-auto scroll-smooth pb-5"
+          >
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band1.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Corduroy Gary</h5>
+              <h5>1st july 9pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band2.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Ken's Shoing Off Again</h5>
+              <h5>2nd July 9.30pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band3.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Golden Quavers</h5>
+              <h5>3rd july 9.30pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band4.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Sonic Levitation</h5>
+              <h5>4st July 10pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band5.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Collection Point A</h5>
+              <h5>5th july 10pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band6.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Laura Can't Eat Daily</h5>
+              <h5>6th july 10pm - Main stage</h5>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div
+                style="
+                  background-image: url(&quot;./assets/images/band7.jpg&quot;);
+                "
+                class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+              ></div>
+              <h5 class="mt-2">Broken Toaster</h5>
+              <h5>7th july 10.30pm - Main stage</h5>
             </div>
           </div>
           <div
